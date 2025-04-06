@@ -1,6 +1,14 @@
 @baseUrl = http://localhost:3000
 
 #Message
-GET {{baseUrl}}/message
+GET {{baseUrl}}/message/
 ###
 GET {{baseUrl}}/message/1
+###
+POST {{baseUrl}}/message/
+Content-Type: application/json
+
+{
+    "message": "A message being passed in body",
+    "newKey": "newValue"
+}
