@@ -8,4 +8,4 @@ import { MessageModule } from './message/message.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {} 
+export class AppModule {}
