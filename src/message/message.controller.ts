@@ -1,13 +1,13 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from '@nestjs/common';
-
+import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Query } from '@nestjs/common';
 @Controller('message')
 export class MessageController {
 
     //Route to find all messages
     @HttpCode(201)
     @Get()
-    findAll(): string {
-        return "This route return all messages"
+    findAll(@Query() pagination: any): string {
+        const { limit=10, offset=0 } = pagination;
+        return `This route return all message. Limit=${limit} and offset=${offset}`;
     }
 
     //Route to find one message
@@ -26,7 +26,7 @@ export class MessageController {
         return {
             id,
             ...body
-        }
+        };
     }
 
     @Delete(":id")

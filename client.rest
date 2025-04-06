@@ -3,6 +3,9 @@
 #Messages
 ###List all messages
 GET {{baseUrl}}/message/
+?limite=10
+&offset=10
+&user=gabriel
 ###List only one message
 GET {{baseUrl}}/message/1
 ###Create a message
