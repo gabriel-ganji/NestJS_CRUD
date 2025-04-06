@@ -22,3 +22,6 @@ Content-Type: application/json
     "message": "A message being passed in body",
     "update": true
 }
+
+###Delete a message
+DELETE {{baseUrl}}/message/1/
