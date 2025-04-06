@@ -1,0 +1,6 @@
+@baseUrl = http://localhost:3000
+
+#Message
+GET {{baseUrl}}/message
+###
+GET {{baseUrl}}/message/1
