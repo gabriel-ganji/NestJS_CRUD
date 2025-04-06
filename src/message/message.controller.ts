@@ -1,9 +1,10 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Param, Patch, Post } from '@nestjs/common';
 
 @Controller('message')
 export class MessageController {
 
     //Route to find all messages
+    @HttpCode(201)
     @Get()
     findAll(): string {
         return "This route return all messages"
@@ -18,6 +19,14 @@ export class MessageController {
     @Post()
     create(@Body() body: any) {
         return `This route create a message. Received message: "${body.message}"`;
+    }
+
+    @Patch(':id')
+    update(@Param('id') id: string, @Body() body: any ) {
+        return {
+            id,
+            ...body
+        }
     }
 
 }

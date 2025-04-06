@@ -1,14 +1,24 @@
 @baseUrl = http://localhost:3000
 
-#Message
+#Messages
+###List all messages
 GET {{baseUrl}}/message/
-###
+###List only one message
 GET {{baseUrl}}/message/1
-###
+###Create a message
 POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
     "message": "A message being passed in body",
     "newKey": "newValue"
+}
+
+###Update a message
+PATCH {{baseUrl}}/message/1/
+Content-Type: application/json
+
+{
+    "message": "A message being passed in body",
+    "update": true
 }
