@@ -13,18 +13,24 @@ POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
-    "message": "A message being passed in body",
-    "newKey": "newValue"
+    "texto": "New message",
+    "from": "Josh",
+    "to": "Ane",
+    "read": false,
+    "date": "2025-04-07T22:03:37.623Z"
 }
 
 ###Update a message
-PATCH {{baseUrl}}/message/1/
+PATCH {{baseUrl}}/message/2/
 Content-Type: application/json
 
 {
-    "message": "A message being passed in body",
-    "update": true
+    "texto": "New message",
+    "from": "Josh",
+    "to": "Ane",
+    "read": false,
+    "date": "2025-04-07T22:03:37.623Z"
 }
 
 ###Delete a message
-DELETE {{baseUrl}}/message/1/
+DELETE {{baseUrl}}/message/2/
