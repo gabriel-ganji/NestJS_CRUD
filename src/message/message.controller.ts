@@ -5,6 +5,7 @@ import {
   Get,
   HttpCode,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -12,7 +13,6 @@ import {
 import { MessageService } from './message.service';
 import { Messages } from './entities/message.entity';
 import { CreateMessageDto } from './dto/create-message.dto';
-import { UpdateMessageDto } from './dto/update-message.dto';
 
 @Controller('message')
 export class MessageController {
@@ -29,7 +29,7 @@ export class MessageController {
 
   //Route to find one message
   @Get(':id')
-  findOne(@Param('id') id: any) {
+  findOne(@Param('id', ParseIntPipe) id: any) {
     return this.messageService.findOne(id);
   }
 
@@ -39,12 +39,12 @@ export class MessageController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() UpdateMessageDto: any) {
+  update(@Param('id', ParseIntPipe) id: number, @Body() UpdateMessageDto: any) {
     return this.messageService.update(id, UpdateMessageDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: any) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.messageService.remove(id);
   }
 }

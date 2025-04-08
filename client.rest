@@ -35,4 +35,4 @@ Content-Type: application/json
 }
 
 ###Delete a message
-DELETE {{baseUrl}}/message/2/
+DELETE {{baseUrl}}/message/abc/

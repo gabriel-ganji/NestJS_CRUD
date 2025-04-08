@@ -48,7 +48,7 @@ export class MessageService {
     return newMessage;
   }
 
-  update(id: string, updateMessageDto: UpdateMessageDto) {
+  update(id: number, updateMessageDto: UpdateMessageDto) {
     const existMessageIndex = this.messages.findIndex(
       (item) => item.id === Number(id),
     );
@@ -69,10 +69,8 @@ export class MessageService {
     return this.messages[existMessageIndex];
   }
 
-  remove(id: string) {
-    const existMessageIndex = this.messages.findIndex(
-      (item) => item.id === Number(id),
-    );
+  remove(id: number) {
+    const existMessageIndex = this.messages.findIndex((item) => item.id === id);
 
     if (existMessageIndex < 0) {
       this.throwNotFoundError();
