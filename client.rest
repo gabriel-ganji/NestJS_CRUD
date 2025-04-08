@@ -7,7 +7,7 @@ GET {{baseUrl}}/message/
 &offset=10
 &user=gabriel
 ###List only one message
-GET {{baseUrl}}/message/1
+GET {{baseUrl}}/message/7
 ###Create a message
 POST {{baseUrl}}/message/
 Content-Type: application/json
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ###Update a message
-PATCH {{baseUrl}}/message/2/
+PATCH {{baseUrl}}/message/12/
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 
 ###Delete a message
-DELETE {{baseUrl}}/message/2/
+DELETE {{baseUrl}}/message/12/
