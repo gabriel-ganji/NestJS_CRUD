@@ -13,7 +13,7 @@ POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
-    "texto": "New message",
+    "text": "Ua",
     "from": "Josh",
     "to": "Ane",
     "read": false,
@@ -25,7 +25,7 @@ PATCH {{baseUrl}}/message/2/
 Content-Type: application/json
 
 {
-    "texto": "Updated message",
+    "text": "Updated message",
     "from": "Josh",
     "to": "Ane",
     "read": false,
