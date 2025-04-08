@@ -1,6 +1,6 @@
 export class Messages {
   id: number;
-  texto: string;
+  text: string;
   from: string;
   to: string;
   read: boolean;
