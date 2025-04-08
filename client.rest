@@ -9,12 +9,14 @@ GET {{baseUrl}}/message/
 ###List only one message
 GET {{baseUrl}}/message/7
 ###Create a message
+#For testing whiteList: true
 POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
-    "text": "Ua",
+    "text": "Uai",
     "from": "Josh",
+    "bla": "bla", 
     "to": "Ane",
     "read": false,
     "date": "2025-04-07T22:03:37.623Z"
