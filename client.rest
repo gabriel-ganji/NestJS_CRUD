@@ -7,7 +7,7 @@ GET {{baseUrl}}/message/
 &offset=10
 &user=gabriel
 ###List only one message
-GET {{baseUrl}}/message/7
+GET {{baseUrl}}/message/1
 ###Create a message
 #For testing whiteList: true
 POST {{baseUrl}}/message/

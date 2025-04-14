@@ -8,10 +8,8 @@ import {
   ParseIntPipe,
   Patch,
   Post,
-  Query,
 } from '@nestjs/common';
 import { MessageService } from './message.service';
-import { Messages } from './entities/message.entity';
 import { CreateMessageDto } from './dto/create-message.dto';
 
 @Controller('message')
@@ -21,10 +19,9 @@ export class MessageController {
   //Route to find all messages
   @HttpCode(201)
   @Get()
-  findAll(@Query() pagination: any): Messages[] {
-    const { limit = 10, offset = 0 } = pagination;
-    // return `This route return all message. Limit=${limit} and offset=${offset}`;
-    return this.messageService.findAll();
+  findAll() {
+    const messages = this.messageService.findAll();
+    return messages;
   }
 
   //Route to find one message
