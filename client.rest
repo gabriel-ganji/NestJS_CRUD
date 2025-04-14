@@ -14,12 +14,9 @@ POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
-    "text": "Uai",
+    "text": "Message",
     "from": "Josh",
-    "bla": "bla", 
-    "to": "Ane",
-    "read": false,
-    "date": "2025-04-07T22:03:37.623Z"
+    "to": "Ane"
 }
 
 ###Update a message
@@ -35,4 +32,4 @@ Content-Type: application/json
 }
 
 ###Delete a message
-DELETE {{baseUrl}}/message/abc/
+DELETE {{baseUrl}}/message/2/

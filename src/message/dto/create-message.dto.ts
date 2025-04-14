@@ -12,12 +12,12 @@ export class CreateMessageDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
-  @MaxLength(255)
+  @MaxLength(50)
   readonly from: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
-  @MaxLength(255)
+  @MaxLength(50)
   readonly to: string;
 }

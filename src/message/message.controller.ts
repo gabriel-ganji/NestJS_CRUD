@@ -30,6 +30,7 @@ export class MessageController {
     return this.messageService.findOne(id);
   }
 
+  //Route to create/insert data in dbS
   @Post()
   create(@Body() createBodyDto: CreateMessageDto) {
     return this.messageService.create(createBodyDto);
