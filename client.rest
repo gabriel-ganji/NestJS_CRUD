@@ -31,3 +31,24 @@ Content-Type: application/json
 
 ###Delete a message
 DELETE {{baseUrl}}/message/2/
+
+
+
+#Person
+###List all people
+GET {{baseUrl}}/person/
+?limite=10
+&offset=10
+&user=gabriel
+###List only one message
+GET {{baseUrl}}/person/1
+###Create a message
+#For testing whiteList: true
+POST {{baseUrl}}/person/
+Content-Type: application/json
+
+{
+    "email": "gabriel1@gmail.com",
+    "name": "Gabriel Rodrigues Fernandes",
+    "password": "123456"
+}
