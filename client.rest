@@ -54,13 +54,12 @@ Content-Type: application/json
 }
 
 ###Update a person
-PATCH {{baseUrl}}/message/3/
+PATCH {{baseUrl}}/person/9/
 Content-Type: application/json
 
 {
-    "text": "Updated message 2",
-    "read": true,
-    "from": "Gabriel"
+    "name": "Paulo",
+    "password": "12345678"
 }
 
 ###Delete a person
