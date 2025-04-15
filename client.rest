@@ -52,3 +52,16 @@ Content-Type: application/json
     "name": "Gabriel Rodrigues Fernandes",
     "password": "123456"
 }
+
+###Update a person
+PATCH {{baseUrl}}/message/3/
+Content-Type: application/json
+
+{
+    "text": "Updated message 2",
+    "read": true,
+    "from": "Gabriel"
+}
+
+###Delete a person
+DELETE {{baseUrl}}/person/4/
