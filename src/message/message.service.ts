@@ -4,12 +4,14 @@ import { Messages } from './entities/message.entity';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { UpdateMessageDto } from './dto/update-message.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { PersonService } from 'src/person/person.service';
 
 @Injectable()
 export class MessageService {
   constructor(
     @InjectRepository(Messages)
     private readonly messagesRepository: Repository<Messages>,
+    private readonly personService: PersonService,
   ) {}
 
   throwNotFoundError() {
@@ -36,6 +38,9 @@ export class MessageService {
   }
 
   async create(createMessageDto: CreateMessageDto) {
+    //We need find the person that is creating the message
+    //We need find the person that will receive the message
+
     const newMessage = {
       ...createMessageDto,
       read: false,
