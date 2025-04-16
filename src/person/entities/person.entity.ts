@@ -1,5 +1,3 @@
-import { IsEmail } from 'class-validator';
-import { Messages } from 'src/message/entities/message.entity';
 import {
   Column,
   CreateDateColumn,
@@ -8,6 +6,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { IsEmail } from 'class-validator';
+import { Messages } from 'src/message/entities/message.entity';
 
 @Entity()
 export class Person {

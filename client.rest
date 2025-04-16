@@ -14,9 +14,9 @@ POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
-    "text": "Message",
-    "from": "Josh",
-    "to": "Ane"
+    "text": "Message"
+    # "from": "Josh",
+    # "to": "Ane"
 }
 
 ###Update a message
@@ -63,4 +63,4 @@ Content-Type: application/json
 }
 
 ###Delete a person
-DELETE {{baseUrl}}/person/4/
+DELETE {{baseUrl}}/person/9/

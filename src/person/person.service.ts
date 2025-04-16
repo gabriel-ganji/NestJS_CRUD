@@ -3,11 +3,11 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { CreatePersonDto } from './dto/create-person.dto';
-import { UpdatePersonDto } from './dto/update-person.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Person } from './entities/person.entity';
 import { Repository } from 'typeorm';
+import { Person } from './entities/person.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { UpdatePersonDto } from './dto/update-person.dto';
+import { CreatePersonDto } from './dto/create-person.dto';
 
 @Injectable()
 export class PersonService {
