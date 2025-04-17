@@ -1,10 +1,10 @@
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Messages } from './entities/message.entity';
+import { PersonService } from 'src/person/person.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { UpdateMessageDto } from './dto/update-message.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PersonService } from 'src/person/person.service';
 
 @Injectable()
 export class MessageService {
@@ -38,8 +38,8 @@ export class MessageService {
   }
 
   async create(createMessageDto: CreateMessageDto) {
-    //We need find the person that is creating the message
-    //We need find the person that will receive the message
+    //I need find the person that is creating the message
+    //I need find the person that will receive the message
 
     const newMessage = {
       ...createMessageDto,
@@ -48,7 +48,6 @@ export class MessageService {
     };
 
     const message = this.messagesRepository.create(newMessage);
-
     return this.messagesRepository.save(message);
   }
 
