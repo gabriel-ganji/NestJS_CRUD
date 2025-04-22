@@ -7,7 +7,7 @@ GET {{baseUrl}}/message/
 &offset=10
 &user=gabriel
 ###List only one message
-GET {{baseUrl}}/message/6
+GET {{baseUrl}}/message/14
 ###Create a message
 #For testing whiteList: true
 POST {{baseUrl}}/message/
@@ -20,13 +20,11 @@ Content-Type: application/json
 }
 
 ###Update a message
-PATCH {{baseUrl}}/message/3/
+PATCH {{baseUrl}}/message/14/
 Content-Type: application/json
 
 {
-    "text": "Updated message 2",
-    "read": true,
-    "from": "Gabriel"
+    "text": "I love you my brother S2"
 }
 
 ###Delete a message
