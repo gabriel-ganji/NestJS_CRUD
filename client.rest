@@ -7,16 +7,16 @@ GET {{baseUrl}}/message/
 &offset=10
 &user=gabriel
 ###List only one message
-GET {{baseUrl}}/message/1
+GET {{baseUrl}}/message/6
 ###Create a message
 #For testing whiteList: true
 POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
-    "text": "Message"
-    # "from": "Josh",
-    # "to": "Ane"
+    "text": "Message",
+    "fromId": 1,
+    "toId": 7
 }
 
 ###Update a message
@@ -48,7 +48,7 @@ POST {{baseUrl}}/person/
 Content-Type: application/json
 
 {
-    "email": "gabriel1@gmail.com",
+    "email": "gabriel3@gmail.com",
     "name": "Gabriel Rodrigues Fernandes",
     "password": "123456"
 }

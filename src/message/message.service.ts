@@ -19,7 +19,22 @@ export class MessageService {
   }
 
   async findAll() {
-    return this.messagesRepository.find();
+    return await this.messagesRepository.find({
+      relations: ['from', 'to'],
+      order: {
+        id: 'desc',
+      },
+      select: {
+        from: {
+          id: true,
+          name: true,
+        },
+        to: {
+          id: true,
+          name: true,
+        },
+      },
+    });
   }
 
   async findOne(id: number) {
@@ -28,6 +43,17 @@ export class MessageService {
     const message = await this.messagesRepository.findOne({
       where: {
         id,
+      },
+      relations: ['from', 'to'],
+      select: {
+        from: {
+          id: true,
+          name: true,
+        },
+        to: {
+          id: true,
+          name: true,
+        },
       },
     });
 
@@ -38,17 +64,31 @@ export class MessageService {
   }
 
   async create(createMessageDto: CreateMessageDto) {
+    const { fromId, toId } = createMessageDto;
     //I need find the person that is creating the message
+    const from = await this.personService.findOne(fromId);
     //I need find the person that will receive the message
+    const to = await this.personService.findOne(toId);
 
     const newMessage = {
-      ...createMessageDto,
+      text: createMessageDto.text,
+      from,
+      to,
       read: false,
       date: new Date(),
     };
 
-    const message = this.messagesRepository.create(newMessage);
-    return this.messagesRepository.save(message);
+    const message = await this.messagesRepository.create(newMessage);
+    await this.messagesRepository.save(message);
+    return {
+      ...message,
+      from: {
+        id: message.from.id,
+      },
+      to: {
+        id: message.to.id,
+      },
+    };
   }
 
   async update(id: number, updateMessageDto: UpdateMessageDto) {

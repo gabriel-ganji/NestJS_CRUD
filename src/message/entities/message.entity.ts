@@ -1,3 +1,4 @@
+import { Person } from 'src/person/entities/person.entity';
 import {
   Column,
   CreateDateColumn,
@@ -17,16 +18,16 @@ export class Messages {
   text: string;
 
   //Many messages can be send by only one person (sender)
-  @ManyToOne(() => Messages)
+  @ManyToOne(() => Person)
   //Specifies the 'from' column of who sent the message
   @JoinColumn({ name: 'from' })
-  from: string;
+  from: Person;
 
   //Many messages can be send by only one person (receiver)
-  @ManyToOne(() => Messages)
+  @ManyToOne(() => Person)
   //Specifies the 'from' column of who received the message
   @JoinColumn({ name: 'to' })
-  to: string;
+  to: Person;
 
   @Column({ default: false })
   read: boolean;
