@@ -14,9 +14,9 @@ POST {{baseUrl}}/message/
 Content-Type: application/json
 
 {
-    "text": "Message",
+    "text": "Hey Jhon!",
     "fromId": 1,
-    "toId": 7
+    "toId": 8
 }
 
 ###Update a message
@@ -48,19 +48,19 @@ POST {{baseUrl}}/person/
 Content-Type: application/json
 
 {
-    "email": "gabriel3@gmail.com",
+    "email": "JHONATAN@gmail.com",
     "name": "Gabriel Rodrigues Fernandes",
     "password": "123456"
 }
 
 ###Update a person
-PATCH {{baseUrl}}/person/9/
+PATCH {{baseUrl}}/person/8/
 Content-Type: application/json
 
 {
-    "name": "Paulo",
-    "password": "12345678"
+    "name": "Jhonatan Rodrigues da Silva"
+    # "password": "12345678"
 }
 
 ###Delete a person
-DELETE {{baseUrl}}/person/9/
+DELETE {{baseUrl}}/person/7/

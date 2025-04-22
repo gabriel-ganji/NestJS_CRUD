@@ -24,7 +24,7 @@ export class Messages {
   from: Person;
 
   //Many messages can be send by only one person (receiver)
-  @ManyToOne(() => Person)
+  @ManyToOne(() => Person, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
   //Specifies the 'from' column of who received the message
   @JoinColumn({ name: 'to' })
   to: Person;
