@@ -5,6 +5,7 @@ import { PersonService } from 'src/person/person.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { UpdateMessageDto } from './dto/update-message.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Injectable()
 export class MessageService {
@@ -18,8 +19,12 @@ export class MessageService {
     throw new NotFoundException('Message not found');
   }
 
-  async findAll() {
+  async findAll(pagination?: PaginationDto) {
+    const { limit = 10, offset = 0 } = pagination;
+    console.log(limit, typeof limit, offset);
     return await this.messagesRepository.find({
+      take: limit, //How many registers will return (by page)
+      skip: offset, // How many register need to be skipped (limit * actual page)
       relations: ['from', 'to'],
       order: {
         id: 'desc',
