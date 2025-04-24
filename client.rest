@@ -3,8 +3,8 @@
 #Messages
 ###List all messages
 GET {{baseUrl}}/message/
-?limit=5
-&offset=10
+?limit=10
+&offset=1
 # &user=gabriel
 ###List only one message
 GET {{baseUrl}}/message/14

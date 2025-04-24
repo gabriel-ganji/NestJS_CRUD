@@ -21,7 +21,6 @@ export class MessageService {
 
   async findAll(pagination?: PaginationDto) {
     const { limit = 10, offset = 0 } = pagination;
-    console.log(limit, typeof limit, offset);
     return await this.messagesRepository.find({
       take: limit, //How many registers will return (by page)
       skip: offset, // How many register need to be skipped (limit * actual page)

@@ -9,11 +9,13 @@ import {
   Patch,
   Post,
   Query,
+  UsePipes,
 } from '@nestjs/common';
 import { MessageService } from './message.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { UpdateMessageDto } from './dto/update-message.dto';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { ParseInIdPipe } from 'src/common/pipes/parse-int-id.pipe';
 
 @Controller('message')
 export class MessageController {
@@ -29,8 +31,9 @@ export class MessageController {
 
   //Route to find one message
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: any) {
-    return this.messageService.findOne(id);
+  @UsePipes(ParseInIdPipe)
+  findOne(@Param('id') id: string) {
+    return this.messageService.findOne(+id);
   }
 
   //Route to create/insert data in dbS
