@@ -19,6 +19,7 @@ import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { ParseInIdPipe } from 'src/common/pipes/parse-int-id.pipe';
 import { AddHeaderInterceptor } from 'src/common/interceptors/add-header.interceptor';
 import { TimingConnectionInterceptor } from 'src/common/interceptors/timing-connection.interceptor';
+import { ErrorHandlingInterceptor } from 'src/common/interceptors/error-handling.interceptor';
 
 @Controller('message')
 // If @UseInterceptors(AddHeaderInterceptor) stays above the class all methods will be able to use it
@@ -28,7 +29,7 @@ export class MessageController {
   //Route to find all messages
   @HttpCode(201)
   @Get()
-  @UseInterceptors(TimingConnectionInterceptor)
+  @UseInterceptors(TimingConnectionInterceptor, ErrorHandlingInterceptor)
   async findAll(@Query() pagination: PaginationDto) {
     const messages = this.messageService.findAll(pagination);
     return messages;
@@ -37,7 +38,7 @@ export class MessageController {
   //Route to find one message
   @Get(':id')
   @UsePipes(ParseInIdPipe)
-  @UseInterceptors(AddHeaderInterceptor)
+  @UseInterceptors(AddHeaderInterceptor, ErrorHandlingInterceptor)
   findOne(@Param('id') id: string) {
     return this.messageService.findOne(+id);
   }
