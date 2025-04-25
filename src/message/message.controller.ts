@@ -9,6 +9,7 @@ import {
   Patch,
   Post,
   Query,
+  UseInterceptors,
   UsePipes,
 } from '@nestjs/common';
 import { MessageService } from './message.service';
@@ -16,14 +17,17 @@ import { CreateMessageDto } from './dto/create-message.dto';
 import { UpdateMessageDto } from './dto/update-message.dto';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { ParseInIdPipe } from 'src/common/pipes/parse-int-id.pipe';
+import { AddHeaderInterceptor } from 'src/common/interceptors/add-header.interceptor';
 
 @Controller('message')
+// If @UseInterceptors(AddHeaderInterceptor) stays above the class all methods will be able to use it
 export class MessageController {
   constructor(private readonly messageService: MessageService) {}
 
   //Route to find all messages
   @HttpCode(201)
   @Get()
+  @UseInterceptors(AddHeaderInterceptor)
   async findAll(@Query() pagination: PaginationDto) {
     const messages = this.messageService.findAll(pagination);
     return messages;
