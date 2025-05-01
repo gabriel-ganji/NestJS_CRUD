@@ -9,13 +9,13 @@ import { catchError, throwError } from 'rxjs';
 
 export class ErrorHandlingInterceptor implements NestInterceptor {
   async intercept(context: ExecutionContext, next: CallHandler<any>) {
-    console.log('ErrorHandlingInterceptor executed. BEFORE!');
+    // console.log('ErrorHandlingInterceptor executed. BEFORE!');
 
     // await new Promise((resolve) => setTimeout(resolve, 5000));
 
     return next.handle().pipe(
       catchError((error) => {
-        console.log('Error!');
+        // console.log('Error!');
         return throwError(() => {
           if (error.name === 'NotFoundException') {
             return new BadRequestException(error.message);

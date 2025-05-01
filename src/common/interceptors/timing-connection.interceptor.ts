@@ -6,7 +6,7 @@ export class TimingConnectionInterceptor implements NestInterceptor {
   async intercept(context: ExecutionContext, next: CallHandler<any>) {
     const startTime = Date.now();
 
-    console.log('TimingConnectionInterceptor executed. BEFORE!');
+    // console.log('TimingConnectionInterceptor executed. BEFORE!');
 
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
