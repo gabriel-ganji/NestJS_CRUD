@@ -20,9 +20,9 @@ import { ParseInIdPipe } from 'src/common/pipes/parse-int-id.pipe';
 import { AddHeaderInterceptor } from 'src/common/interceptors/add-header.interceptor';
 import { TimingConnectionInterceptor } from 'src/common/interceptors/timing-connection.interceptor';
 import { ErrorHandlingInterceptor } from 'src/common/interceptors/error-handling.interceptor';
-import { ChangeDataInterceptor } from 'src/common/interceptors/change-data.interceptor';
+import { AuthTokenInterceptor } from 'src/common/interceptors/auth-token.interceptor';
 
-@UseInterceptors(ChangeDataInterceptor)
+@UseInterceptors(AuthTokenInterceptor)
 @Controller('message')
 // If @UseInterceptors(AddHeaderInterceptor) stays above the class all methods will be able to use it
 export class MessageController {

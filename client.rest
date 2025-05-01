@@ -5,6 +5,7 @@
 GET {{baseUrl}}/message/
 ?limit=10
 &offset=1
+Authorization: Bearer Here_comes_the_token
 # &user=gabriel
 ###List only one message
 GET {{baseUrl}}/message/14
