@@ -9,7 +9,6 @@ import {
   Patch,
   Post,
   Query,
-  Req,
   UseInterceptors,
   UsePipes,
 } from '@nestjs/common';
@@ -22,6 +21,8 @@ import { AddHeaderInterceptor } from 'src/common/interceptors/add-header.interce
 import { TimingConnectionInterceptor } from 'src/common/interceptors/timing-connection.interceptor';
 import { ErrorHandlingInterceptor } from 'src/common/interceptors/error-handling.interceptor';
 import { AuthTokenInterceptor } from 'src/common/interceptors/auth-token.interceptor';
+import { UrlParam } from 'src/common/params/url-param.decorator';
+import { ReqDataParam } from 'src/common/params/req-data-param.decorator';
 
 @UseInterceptors(AuthTokenInterceptor)
 @Controller('message')
@@ -33,8 +34,12 @@ export class MessageController {
   @HttpCode(201)
   @Get()
   @UseInterceptors(TimingConnectionInterceptor, ErrorHandlingInterceptor)
-  async findAll(@Query() pagination: PaginationDto, @Req() req: Request) {
-    console.log('MessageController: ', req['user']);
+  async findAll(
+    @Query() pagination: PaginationDto,
+    @ReqDataParam('method') method,
+  ) {
+    // console.log('MessageController: ', req['user']);
+    console.log(method);
     const messages = this.messageService.findAll(pagination);
     return messages;
   }

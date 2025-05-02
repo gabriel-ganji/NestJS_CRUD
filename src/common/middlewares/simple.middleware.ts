@@ -20,8 +20,8 @@ export class SimpleMiddleware implements NestMiddleware {
 
     // console.log('SimpleMiddleware: tchau!');
 
-    res.on('finish', () => {
-      console.log('SimpleMiddleware: terminou!');
-    });
+    // res.on('finish', () => {
+    //   console.log('SimpleMiddleware: terminou!');
+    // });
   }
 }
