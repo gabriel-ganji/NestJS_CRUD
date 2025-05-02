@@ -17,6 +17,6 @@ export class AnotherMiddleware implements NestMiddleware {
 
     next();
 
-    console.log('AnotherMiddleware: tchau!');
+    // console.log('AnotherMiddleware: tchau!');
   }
 }

@@ -18,7 +18,7 @@ export class SimpleMiddleware implements NestMiddleware {
 
     next(); //Goes to the next middleware
 
-    console.log('SimpleMiddleware: tchau!');
+    // console.log('SimpleMiddleware: tchau!');
 
     res.on('finish', () => {
       console.log('SimpleMiddleware: terminou!');
