@@ -9,6 +9,7 @@ import {
   Patch,
   Post,
   Query,
+  Req,
   UseInterceptors,
   UsePipes,
 } from '@nestjs/common';
@@ -32,7 +33,8 @@ export class MessageController {
   @HttpCode(201)
   @Get()
   @UseInterceptors(TimingConnectionInterceptor, ErrorHandlingInterceptor)
-  async findAll(@Query() pagination: PaginationDto) {
+  async findAll(@Query() pagination: PaginationDto, @Req() req: Request) {
+    console.log('MessageController: ', req['user']);
     const messages = this.messageService.findAll(pagination);
     return messages;
   }
