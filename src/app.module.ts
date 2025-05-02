@@ -4,14 +4,14 @@ import {
   NestModule,
   RequestMethod,
 } from '@nestjs/common';
-import { APP_FILTER } from '@nestjs/core';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
+import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { PersonModule } from './person/person.module';
 import { MessageModule } from './message/message.module';
+import { IsAdminGuard } from './common/guards/is-admin.guard';
 import { SimpleMiddleware } from './common/middlewares/simple.middleware';
-import { AnotherMiddleware } from './common/middlewares/another.middleware';
 import { ErrorExceptionFilter } from './common/filters/error-exception.filter';
 
 @Module({
@@ -36,6 +36,10 @@ import { ErrorExceptionFilter } from './common/filters/error-exception.filter';
       provide: APP_FILTER,
       useClass: ErrorExceptionFilter,
     },
+    {
+      provide: APP_GUARD,
+      useClass: IsAdminGuard,
+    },
   ],
 })
 export class AppModule implements NestModule {
@@ -43,10 +47,6 @@ export class AppModule implements NestModule {
     consumer.apply(SimpleMiddleware).forRoutes({
       path: '*', //It means that middleware 'SimpleMiddleware' is above all routes
       method: RequestMethod.ALL, //It means that middleware 'SimpleMiddleware' uses all methods
-    });
-    consumer.apply(AnotherMiddleware).forRoutes({
-      path: '*', //It means that middleware 'AnotherMiddleware' is above all routes
-      method: RequestMethod.ALL, //It means that middleware 'AnotherMiddleware' uses all methods
     });
   }
 }
