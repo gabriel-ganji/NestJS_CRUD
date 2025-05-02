@@ -10,6 +10,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true, //Throw error when key doesn't exist
     }),
   );
+
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

@@ -8,7 +8,8 @@ GET {{baseUrl}}/message/
 Authorization: Bearer Here_comes_the_token
 # &user=gabriel
 ###List only one message
-GET {{baseUrl}}/message/14
+GET {{baseUrl}}/message/155
+Authorization: Bearer Here_comes_the_token
 ###Create a message
 #For testing whiteList: true
 POST {{baseUrl}}/message/
